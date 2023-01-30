@@ -13,7 +13,7 @@ protocol GalleryVCBuilder {
 
 struct GalleryVCBuilderImpl: GalleryVCBuilder {
     static func build() -> UIViewController {
-        let vc = GalleryVC(nibName: GalleryVC.className, bundle: nil)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: GalleryVC.className) as! GalleryVC
         
         let viewModel = GalleryViewModelImpl()
         let provider = GalleryCollectionViewProviderImpl()
